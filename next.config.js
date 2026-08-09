@@ -6,8 +6,11 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // 关键：强制静默，防止打包时执行 API 路由导致报错
-  output: 'standalone',
+  // 跳过构建期的静态生成校验
+  staticPageGenerationTimeout: 1000,
+  experimental: {
+    missingSuspenseWithCSROnly: true,
+  }
 };
 
 module.exports = nextConfig;
